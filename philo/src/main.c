@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:09:38 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/01 17:08:28 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:25:46 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ Arg 4 = temps de repos
 
 int	main(int argc, char **argv)
 {
-	
+	check_args_errors(argc, argv);
 	return (0);
 }
