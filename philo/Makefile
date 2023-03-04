@@ -1,4 +1,4 @@
-CC			= gcc -g
+CC			= gcc -g -pthread
 CFLAGS		= -Werror -Wall -Wextra #-fsanitize=address
 NAME		= philo
 
@@ -9,6 +9,7 @@ SRC			= main.c \
 			  check_args_errors.c \
 			  init_philos_table.c \
 			  linked_list_utils.c \
+			  routine.c \
 			  errors.c \
 			  utils.c \
 

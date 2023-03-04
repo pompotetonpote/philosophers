@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:09:38 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/04 18:17:03 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:01:26 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	main(int argc, char **argv)
 	check_args_errors(argc, argv);
 	ph_table = init_ph_table(argv);
 	philos = init_philos(ph_table);
+	
+
+
 	int i = 0;
 	while (i++ < ft_atoi(argv[1]) && philos)
 	{

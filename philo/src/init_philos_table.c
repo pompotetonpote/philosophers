@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:23:36 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/04 18:15:42 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/04 18:40:00 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_table	*init_ph_table(char **argv)
 	ph_table->t_think = ft_atoi(argv[4]);
 	if (argv[5])
 		ph_table->dishes = ft_atoi(argv[5]);
+	ph_table->th = malloc(sizeof(pthread_t) * ph_table->seats);
 	return (ph_table);
 }
 
