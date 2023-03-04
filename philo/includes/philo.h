@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:10:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/04 16:55:23 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:56:52 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@
 # include <stdlib.h>
 # include <pthread.h>
 
+typedef struct t_table
+{
+	int			seats;
+	int			t_spag;
+	int			t_sleep;
+	int			t_think;
+}	t_table;
+
 typedef struct s_philo
 {
 	int				idx;
-	int				mseat;
-	int				mssleep;
-	int				msthink;
 	int				fork;
 	struct s_philo	*prev;
 	struct s_philo	*next;
@@ -30,7 +35,8 @@ typedef struct s_philo
 
 /* Philos Linked-List */
 
-t_philo	*init_philos_table(char **argv);
+t_philo	*init_philos(t_table *ph_table);
+t_table	*init_ph_table(char **argv);
 t_philo	*new_philo(int a);
 t_philo	*add_new_philo(t_philo **philos, t_philo *philo);
 
