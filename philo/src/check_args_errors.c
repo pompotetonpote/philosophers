@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args_errors.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:29:14 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/01 21:17:31 by yeye             ###   ########.fr       */
+/*   Updated: 2023/03/04 16:47:33 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,33 +35,11 @@ int	check_args_digit(char **argv)
 	return (1);
 }
 
-int	check_args_nonull(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < 5)
-	{
-		if (!ft_atoi(argv[1]) || !ft_atoi(argv[2]) || !ft_atoi(argv[3])
-		|| !ft_atoi(argv[4]))
-			return (0);
-		i++;
-	}
-	if (argc == 6)
-	{
-		if (!ft_atoi(argv[5]))
-			return (0);
-	}
-	return (1);
-}
-
 void	check_args_errors(int argc, char **argv)
 {
-
+	(void) argv;
 	if (argc > 6 || argc < 5)
-		error_log("Error : Invalid number of arguments\n");
-	if (!check_args_nonull(argc, argv))
-		error_log("Error : Empty argument\n");
+		error_log("Error : Invalid number of arguments", NULL);
 	if (!check_args_digit(argv))
-		error_log("Error : Arguments are not only composed of numbers\n");
+		error_log("Error : Arguments are not composed only of numbers", NULL);
 }
