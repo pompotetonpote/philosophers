@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:10:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/04 17:56:52 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/04 18:15:44 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct t_table
 	int			t_spag;
 	int			t_sleep;
 	int			t_think;
+	int			dishes;
 }	t_table;
 
 typedef struct s_philo
