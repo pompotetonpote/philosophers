@@ -7,6 +7,8 @@ OBJ_PATH 	= obj/
 
 SRC			= main.c \
 			  check_args_errors.c \
+			  init_philos.c \
+			  linked_list_utils.c \
 			  errors.c \
 			  utils.c \
 
