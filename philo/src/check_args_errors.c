@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args_errors.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:29:14 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/04 16:47:33 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/05 14:30:04 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	check_args_errors(int argc, char **argv)
 {
 	(void) argv;
 	if (argc > 6 || argc < 5)
-		error_log("Error : Invalid number of arguments", NULL);
+		error_log("Error : Invalid number of arguments", NULL, NULL);
 	if (!check_args_digit(argv))
-		error_log("Error : Arguments are not composed only of numbers", NULL);
+		error_log("Error : Arguments are not composed only of numbers", NULL, NULL);
 }

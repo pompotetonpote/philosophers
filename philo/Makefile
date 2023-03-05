@@ -1,5 +1,5 @@
 CC			= gcc -g -pthread
-CFLAGS		= -Werror -Wall -Wextra #-fsanitize=address
+CFLAGS		= -Werror -Wall -Wextra -fsanitize=address
 NAME		= philo
 
 SRC_PATH 	= src/
