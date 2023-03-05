@@ -6,13 +6,13 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:46:31 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/04 16:15:27 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:58:36 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-t_philo	*new_philo(int a)
+t_philo	*new_philo(t_table *ph_table, int a)
 {
 	t_philo	*new_philo;
 
@@ -20,6 +20,8 @@ t_philo	*new_philo(int a)
 	if (!new_philo)
 		return (NULL);
 	new_philo->idx = a;
+	new_philo->alive = 1;
+	new_philo->ph_table = ph_table;
 	new_philo->next = NULL;
 	return (new_philo);
 }	

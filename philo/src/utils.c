@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:19:54 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/01 21:04:11 by yeye             ###   ########.fr       */
+/*   Updated: 2023/03/05 18:27:26 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,9 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (res * sign);
+}
+
+void	print_philo_routine(char *str, t_philo *philos)
+{
+	
 }
