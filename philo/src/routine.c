@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:41:51 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/05 18:27:04 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/05 19:07:37 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	philo_spag(t_philo *philos)
 }
 void	philo_sleep(t_philo *philos)
 {
-	
+	print
 }
 void	philo_think(t_philo *philos)
 {

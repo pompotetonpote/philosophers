@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:19:54 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/05 18:27:26 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/05 19:07:42 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ int	ft_atoi(const char *str)
 
 void	print_philo_routine(char *str, t_philo *philos)
 {
-	
+	printf("")
 }
