@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:09:38 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/05 19:07:40 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:07:46 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ int	main(int argc, char **argv)
 	if (!th)
 		error_log("Error : thread array NULL\n", &philos);
 	start_threads(ph_table, philos, th);
-	int i = 0;
-	while (i++ < ft_atoi(argv[1]) && philos)
-	{
-		printf("idx : %d\n", philos->idx);
-		philos = philos->next;
-	}
 	free(th);
 	free_philos(&philos);
 	return (0);
