@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:10:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/05 19:07:38 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/07 18:31:20 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <time.h>
+
+# define ENDC		"\e[0m"
+# define YELLOW		"\e[33m"
+# define BLUE		"\e[1;34m"
+# define RED		"\e[31m"
+# define GREEN		"\e[32m"
 
 typedef struct t_table
 {
@@ -33,8 +39,10 @@ typedef struct s_philo
 	int				idx;
 	int				r_fork;
 	int				l_fork;
+	int				dishes_eaten;
 	int				free_fork;
 	pthread_mutex_t	has_fork;
+	pthread_mutex_t	putex;
 	int				alive;
 	struct s_philo	*prev;
 	struct s_philo	*next;
@@ -50,7 +58,7 @@ t_philo	*add_new_philo(t_philo **philos, t_philo *philo);
 /* Threads & Routine*/
 
 int		start_threads(t_table *ph_table, t_philo *philos, pthread_t *th);
-void	print_philo_routine(char *str, t_philo *philos);
+void	plog_philo_rtine(char *str, t_philo *philos, char *color, char *endc);
 
 /*  ERRORS  */
 

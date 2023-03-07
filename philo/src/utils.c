@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:19:54 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/05 19:07:42 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/07 18:22:38 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-void	print_philo_routine(char *str, t_philo *philos)
+void	plog_philo_rtine(char *str, t_philo *philos, char *color, char *endc)
 {
-	printf("")
+	pthread_mutex_lock(&philos->putex);
+	printf("%s%d %s%s\n", color, philos->idx, str, endc);
+	pthread_mutex_unlock(&philos->putex);
 }

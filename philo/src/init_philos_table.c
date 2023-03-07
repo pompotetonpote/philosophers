@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:23:36 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/05 18:03:43 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/07 18:54:07 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_table	*init_ph_table(char **argv)
 	ph_table->t_think = ft_atoi(argv[4]);
 	if (argv[5])
 		ph_table->nbr_dishes = ft_atoi(argv[5]);
+	else
+		ph_table->nbr_dishes = -1;
 	return (ph_table);
 }
 
