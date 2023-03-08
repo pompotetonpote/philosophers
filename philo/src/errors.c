@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:18:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/05 18:03:16 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/08 22:00:12 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	free_philos(t_philo **philos)
 		return ;
 	if ((*philos)->ph_table)
 		free((*philos)->ph_table);
-	(*philos)->prev->next = NULL;
+	if((*philos)->next != NULL)
+		(*philos)->prev->next = NULL;
 	while (*philos)
 	{
 		tmp = (*philos);

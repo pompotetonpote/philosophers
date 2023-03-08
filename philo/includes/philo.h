@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:10:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/08 17:02:28 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:23:03 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_philo
 	unsigned long	last_meal;
 	pthread_mutex_t	has_fork;
 	pthread_mutex_t	putex;
+	pthread_mutex_t	healthex;
 	int				alive;
 	struct s_philo	*prev;
 	struct s_philo	*next;
@@ -65,6 +66,7 @@ void			plog_philo_rtine(char *str, t_philo *philos,
 					char *color, char *endc);
 int				check_philo_health(t_philo *philos);
 int				check_philo_rip(t_philo *philos);
+void			*philo_routine(void *arg);
 
 /*  ERRORS  */
 

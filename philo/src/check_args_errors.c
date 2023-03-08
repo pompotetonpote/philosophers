@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args_errors.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:29:14 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/08 14:41:13 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:27:22 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	check_args_errors(int argc, char **argv)
 		error_log("Error : Invalid number of arguments\n", NULL);
 	if (!check_args_digit(argv))
 		error_log("Error : Unauthorized argument\n", NULL);
-	if (ft_atoi(argv[1]) < 2)
-		error_log("Error : Need at least two philos\n", NULL);
+	if (ft_atoi(argv[1]) < 1)
+		error_log("Error : Need at least one philo\n", NULL);
 }
