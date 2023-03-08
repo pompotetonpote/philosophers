@@ -6,7 +6,7 @@
 /*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:23:36 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/08 21:44:20 by yeye             ###   ########.fr       */
+/*   Updated: 2023/03/08 23:36:51 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ int	check_philo_health(t_philo *philos)
 	unsigned long	res;
 	res = get_time() - philos->last_meal;
 	printf("%lu - %lu = %lu > %d\n", get_time(), philos->last_meal, res, philos->ph_table->t_die);
-//	sleep(3);
 	if (get_time() - philos->last_meal
-		> (unsigned long) philos->ph_table->t_die)
+		>= (unsigned long) philos->ph_table->t_die)
 	{
 		pthread_mutex_lock(&philos->healthex);
 		philos->alive = 0;
