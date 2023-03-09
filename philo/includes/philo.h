@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:10:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/08 21:23:03 by yeye             ###   ########.fr       */
+/*   Updated: 2023/03/09 13:58:14 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct t_table
 	int				t_think;
 	int				nbr_dishes;
 	unsigned long	start_time;
+	pthread_mutex_t	putex;
 }	t_table;
 
 typedef struct s_philo
@@ -44,8 +45,8 @@ typedef struct s_philo
 	int				dishes_eaten;
 	unsigned long	last_meal;
 	pthread_mutex_t	has_fork;
-	pthread_mutex_t	putex;
 	pthread_mutex_t	healthex;
+	pthread_mutex_t	timex;
 	int				alive;
 	struct s_philo	*prev;
 	struct s_philo	*next;

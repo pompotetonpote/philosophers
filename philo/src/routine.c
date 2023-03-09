@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:41:51 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/09 11:09:03 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:34:51 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,16 @@ void	philo_spag(t_philo *philos)
 	else
 	{	
 		if (philos->idx % 2 == 0)
-		{
-			usleep(100);
-			pthread_mutex_lock(&philos->has_fork);
-			plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
-			pthread_mutex_lock(&philos->prev->has_fork);
-			plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
-		}
-		else
-		{
-			pthread_mutex_lock(&philos->prev->has_fork);
-			plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
-			pthread_mutex_lock(&philos->has_fork);
-			plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
-		}
-		philos->last_meal = get_time();
+			usleep (philos->ph_table->t_spag * 250);
+		pthread_mutex_lock(&philos->has_fork);
+		plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
+		pthread_mutex_lock(&philos->prev->has_fork);
+		plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
 		usleep(philos->ph_table->t_spag * 1000);
-	//	printf("usleep t_spag:%d\n", philos->ph_table->t_spag * 1000);
+		// pthread_mutex_lock(&philos->timex);
+		philos->last_meal = get_time();
+		// pthread_mutex_unlock(&philos->timex);
 		philos->dishes_eaten += 1;
-	//	printf("%d ate %d dishes\n", philos->idx, philos->dishes_eaten);
 		pthread_mutex_unlock(&philos->has_fork);
 		pthread_mutex_unlock(&philos->prev->has_fork);
 	}
@@ -85,8 +76,8 @@ void	*philo_routine(void *arg)
 		if (!check_philo_rip(philos))
 			break ;
 		philo_think(philos);
-		if (!check_philo_health(philos))
-			break ;
+		// if (!check_philo_health(philos))
+		// 	break ;
 		if (!check_philo_rip(philos))
 			break ;
 	}
