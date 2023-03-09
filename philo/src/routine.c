@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:41:51 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/08 23:36:48 by yeye             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:09:03 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	philo_spag(t_philo *philos)
 	{	
 		if (philos->idx % 2 == 0)
 		{
+			usleep(100);
 			pthread_mutex_lock(&philos->has_fork);
 			plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
 			pthread_mutex_lock(&philos->prev->has_fork);

@@ -9,6 +9,7 @@ SRC			= main.c \
 			  check_args_errors.c \
 			  init_philos_table.c \
 			  linked_list_utils.c \
+			  threads.c \
 			  routine.c \
 			  errors.c \
 			  utils.c \
