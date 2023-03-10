@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:19:54 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/09 13:53:34 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:46:33 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,21 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-void	plog_philo_rtine(char *str, t_philo *philos, char *color, char *endc)
-{	
-	unsigned long	timestamp;
-
-	timestamp = (get_time() - philos->ph_table->start_time);
-	pthread_mutex_lock(&philos->ph_table->putex);
-	printf("%s%lu %d %s%s\n", color, timestamp,
-		philos->idx, str, endc);
-	pthread_mutex_unlock(&philos->ph_table->putex);
-
-}
-
 unsigned long	get_time(void)
 {
 	struct timeval	time;
 
 	gettimeofday(&time, NULL);
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+void	ft_usleep(unsigned long mstime)
+{
+	unsigned long	start;
+	unsigned long	iteration;
+
+	start = get_time();
+	iteration = start ;
+	while (iteration < (start + mstime))
+		iteration = get_time();
 }

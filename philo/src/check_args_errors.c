@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args_errors.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:29:14 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/08 21:27:22 by yeye             ###   ########.fr       */
+/*   Updated: 2023/03/10 15:13:13 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,9 @@ void	check_args_errors(int argc, char **argv)
 		error_log("Error : Unauthorized argument\n", NULL);
 	if (ft_atoi(argv[1]) < 1)
 		error_log("Error : Need at least one philo\n", NULL);
+	if (argv[5])
+	{
+		if (ft_atoi(argv[5]) == 0)
+			error_log("Error : Philos need to eat at least 1 dish", NULL);
+	}
 }

@@ -6,21 +6,36 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:23:36 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/09 14:35:03 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:18:52 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
+void	plog_philo_rtine(char *str, t_philo *philos, char *color, char *endc)
+{	
+	unsigned long	timestamp;
+
+	timestamp = (get_time() - philos->ph_table->start_time);
+	pthread_mutex_lock(&philos->ph_table->putex);
+	printf("%s%lu %d %s%s\n", color, timestamp,
+		philos->idx, str, endc);
+	pthread_mutex_unlock(&philos->ph_table->putex);
+}
+
 int	check_philo_health(t_philo *philos)
 {
-	// unsigned long	res;
+	unsigned long	res;
 
-	// if (philos->last_meal != 0)
-	// pthread_mutex_lock(&philos->timex);
-	// res = get_time() - philos->last_meal;
-	// printf("%lu - %lu = %lu > %d\n", get_time(), philos->last_meal, res,
-	// 	philos->ph_table->t_die);
+	pthread_mutex_lock(&philos->timex);
+	pthread_mutex_lock(&philos->dishes);
+	if (philos->dishes_eaten == philos->ph_table->nbr_dishes)
+	{
+		pthread_mutex_unlock(&philos->dishes);
+		return (0);
+	}
+	pthread_mutex_unlock(&philos->dishes);
+	res = get_time() - philos->last_meal;
 	if (get_time() - philos->last_meal
 		> (unsigned long) philos->ph_table->t_die)
 	{
@@ -28,10 +43,10 @@ int	check_philo_health(t_philo *philos)
 		philos->alive = 0;
 		pthread_mutex_unlock(&philos->healthex);
 		plog_philo_rtine("is dead", philos, RED, ENDC);
-		// pthread_mutex_unlock(&philos->timex);
+		pthread_mutex_unlock(&philos->timex);
 		return (0);
 	}
-	// pthread_mutex_unlock(&philos->timex);
+	pthread_mutex_unlock(&philos->timex);
 	return (1);
 }
 

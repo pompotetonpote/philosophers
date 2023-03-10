@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:10:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/09 13:58:14 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 14:15:08 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define BLUE		"\e[1;34m"
 # define RED		"\e[31m"
 # define GREEN		"\e[32m"
+# define MAG		"\e[35m"
 
 typedef struct t_table
 {
@@ -47,6 +48,7 @@ typedef struct s_philo
 	pthread_mutex_t	has_fork;
 	pthread_mutex_t	healthex;
 	pthread_mutex_t	timex;
+	pthread_mutex_t	dishes;
 	int				alive;
 	struct s_philo	*prev;
 	struct s_philo	*next;
@@ -82,5 +84,6 @@ int				ft_atoi(const char *str);
 void			free_philos(t_philo **philos);
 void			free_table(t_table **ph_table);
 unsigned long	get_time(void);
+void			ft_usleep(unsigned long time);
 
 #endif

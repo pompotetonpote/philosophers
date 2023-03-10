@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:18:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/09 13:36:00 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 14:57:08 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	free_philos(t_philo **philos)
 		return ;
 	if ((*philos)->ph_table)
 		free((*philos)->ph_table);
-	if((*philos)->next != NULL)
+	if ((*philos)->next != NULL)
 		(*philos)->prev->next = NULL;
 	while (*philos)
 	{
