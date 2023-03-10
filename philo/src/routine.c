@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:41:51 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/10 17:12:46 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 23:10:55 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	philo_spag(t_philo *philos)
 		pthread_mutex_lock(&philos->dishes);
 		philos->dishes_eaten += 1;
 		pthread_mutex_unlock(&philos->dishes);
-		pthread_mutex_unlock(&philos->has_fork);
 		pthread_mutex_unlock(&philos->prev->has_fork);
+		pthread_mutex_unlock(&philos->has_fork);
 	}
 }
 
@@ -62,8 +62,6 @@ void	*philo_routine(void *arg)
 			plog_philo_rtine("ate all the plates", philos, MAG, ENDC);
 			break ;
 		}
-		// if (!check_plate_philos(philos))
-		// 	break ;
 		philo_spag(philos);
 		if (!check_philo_rip(philos))
 			break ;
