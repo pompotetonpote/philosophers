@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:29:14 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/10 15:13:13 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:11:32 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	check_args_digit(char **argv)
 
 void	check_args_errors(int argc, char **argv)
 {
-	(void) argv;
 	if (argc > 6 || argc < 5)
 		error_log("Error : Invalid number of arguments\n", NULL);
 	if (!check_args_digit(argv))
@@ -47,6 +46,6 @@ void	check_args_errors(int argc, char **argv)
 	if (argv[5])
 	{
 		if (ft_atoi(argv[5]) == 0)
-			error_log("Error : Philos need to eat at least 1 dish", NULL);
+			error_log("Error : Philos need to eat at least 1 dish\n", NULL);
 	}
 }

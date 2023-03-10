@@ -6,22 +6,11 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:23:36 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/10 15:18:52 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:07:29 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-void	plog_philo_rtine(char *str, t_philo *philos, char *color, char *endc)
-{	
-	unsigned long	timestamp;
-
-	timestamp = (get_time() - philos->ph_table->start_time);
-	pthread_mutex_lock(&philos->ph_table->putex);
-	printf("%s%lu %d %s%s\n", color, timestamp,
-		philos->idx, str, endc);
-	pthread_mutex_unlock(&philos->ph_table->putex);
-}
 
 int	check_philo_health(t_philo *philos)
 {
@@ -31,6 +20,7 @@ int	check_philo_health(t_philo *philos)
 	pthread_mutex_lock(&philos->dishes);
 	if (philos->dishes_eaten == philos->ph_table->nbr_dishes)
 	{
+		pthread_mutex_unlock(&philos->timex);
 		pthread_mutex_unlock(&philos->dishes);
 		return (0);
 	}
@@ -47,6 +37,28 @@ int	check_philo_health(t_philo *philos)
 		return (0);
 	}
 	pthread_mutex_unlock(&philos->timex);
+	return (1);
+}
+
+int	check_philo_rip_print(t_philo *philos)
+{
+	int	i;
+
+	i = 0;
+	while (i < philos->ph_table->nbr_seats - 1)
+	{
+		pthread_mutex_lock(&philos->healthex);
+		if (philos->alive == 0)
+		{
+			pthread_mutex_unlock(&philos->healthex);
+			return (0);
+		}
+		pthread_mutex_unlock(&philos->healthex);
+		i++;
+		if (philos->ph_table->nbr_seats == 1)
+			break ;
+		philos = philos->next;
+	}
 	return (1);
 }
 

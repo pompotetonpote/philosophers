@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:10:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/10 14:15:08 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:11:50 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define RED		"\e[31m"
 # define GREEN		"\e[32m"
 # define MAG		"\e[35m"
+# define CYAN		"\e[36m"
 
 typedef struct t_table
 {
@@ -69,7 +70,9 @@ void			plog_philo_rtine(char *str, t_philo *philos,
 					char *color, char *endc);
 int				check_philo_health(t_philo *philos);
 int				check_philo_rip(t_philo *philos);
+int				check_philo_rip_print(t_philo *philos);
 void			*philo_routine(void *arg);
+// int				check_plate_philos(t_philo *philos);
 
 /*  ERRORS  */
 

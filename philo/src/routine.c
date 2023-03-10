@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:41:51 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/10 15:03:00 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:12:46 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ void	philo_spag(t_philo *philos)
 		if (philos->idx % 2 == 0 && philos->dishes_eaten == 0)
 			ft_usleep(philos->ph_table->t_spag * 0.2);
 		pthread_mutex_lock(&philos->has_fork);
-		plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
+		plog_philo_rtine("has taken a fork", philos, CYAN, ENDC);
 		pthread_mutex_lock(&philos->prev->has_fork);
-		plog_philo_rtine("has taken a fork", philos, GREEN, ENDC);
+		plog_philo_rtine("has taken a fork", philos, CYAN, ENDC);
+		plog_philo_rtine("is eating", philos, GREEN, ENDC);
 		ft_usleep(philos->ph_table->t_spag);
 		pthread_mutex_lock(&philos->timex);
 		philos->last_meal = get_time();
@@ -39,7 +40,8 @@ void	philo_spag(t_philo *philos)
 void	philo_sleep(t_philo *philos)
 {
 	plog_philo_rtine("is sleeping", philos, BLUE, ENDC);
-	ft_usleep(philos->ph_table->t_sleep);
+	if (philos->ph_table->t_sleep > 0)
+		ft_usleep(philos->ph_table->t_sleep);
 }
 
 void	philo_think(t_philo *philos)
@@ -60,6 +62,8 @@ void	*philo_routine(void *arg)
 			plog_philo_rtine("ate all the plates", philos, MAG, ENDC);
 			break ;
 		}
+		// if (!check_plate_philos(philos))
+		// 	break ;
 		philo_spag(philos);
 		if (!check_philo_rip(philos))
 			break ;

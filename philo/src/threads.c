@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:28:06 by yperonne          #+#    #+#             */
-/*   Updated: 2023/03/10 15:18:17 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:12:17 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int	start_threads(t_table *ph_table, t_philo *philos, pthread_t *th)
 	{
 		if (!check_philo_health(philos))
 			break ;
+		// if (check_plate_philos(philos))
+		// 	break ;
 		if (ph_table->nbr_seats != 1)
 			philos = philos->next;
 	}
