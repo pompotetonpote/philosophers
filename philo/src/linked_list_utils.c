@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:46:31 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/10 17:11:59 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:10:07 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	plog_philo_rtine(char *str, t_philo *philos, char *color, char *endc)
 
 	timestamp = (get_time() - philos->ph_table->start_time);
 	pthread_mutex_lock(&philos->ph_table->putex);
-	if (!check_philo_rip_print(philos->next))
+	if (!check_philo_rip_print(philos))
 	{
 		pthread_mutex_unlock(&philos->ph_table->putex);
 		return ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_philos_table.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:23:36 by yeye              #+#    #+#             */
-/*   Updated: 2023/03/10 17:07:29 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:10:09 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int	check_philo_health(t_philo *philos)
 {
 	unsigned long	res;
 
+	(void) res;
 	pthread_mutex_lock(&philos->timex);
 	pthread_mutex_lock(&philos->dishes);
+	res = get_time() - philos->last_meal;
 	if (philos->dishes_eaten == philos->ph_table->nbr_dishes)
 	{
 		pthread_mutex_unlock(&philos->timex);
@@ -25,7 +27,6 @@ int	check_philo_health(t_philo *philos)
 		return (0);
 	}
 	pthread_mutex_unlock(&philos->dishes);
-	res = get_time() - philos->last_meal;
 	if (get_time() - philos->last_meal
 		> (unsigned long) philos->ph_table->t_die)
 	{
@@ -45,6 +46,10 @@ int	check_philo_rip_print(t_philo *philos)
 	int	i;
 
 	i = 0;
+	if (philos->ph_table->nbr_seats == 1)
+		return (1);
+	else
+		philos = philos->next;
 	while (i < philos->ph_table->nbr_seats - 1)
 	{
 		pthread_mutex_lock(&philos->healthex);
@@ -55,8 +60,6 @@ int	check_philo_rip_print(t_philo *philos)
 		}
 		pthread_mutex_unlock(&philos->healthex);
 		i++;
-		if (philos->ph_table->nbr_seats == 1)
-			break ;
 		philos = philos->next;
 	}
 	return (1);
